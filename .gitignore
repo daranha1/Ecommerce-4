@@ -1,0 +1,11 @@
+### IntelliJ ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Other ###
+help.txt
+
+### exclude target ###
+/target/
