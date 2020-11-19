@@ -37,7 +37,7 @@ public class CartController {
 	private static Logger log = LoggerFactory.getLogger(CartController.class);
 	
 	@PostMapping("/addToCart")
-	public ResponseEntity<Cart> addTocart(@RequestBody ModifyCartRequest request) {
+	public ResponseEntity<Cart> addToCart(@RequestBody ModifyCartRequest request) {
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
 			log.info("User does not exist : " + request.getUsername());
@@ -52,12 +52,12 @@ public class CartController {
 		IntStream.range(0, request.getQuantity())
 			.forEach(i -> cart.addItem(item.get()));
 		cartRepository.save(cart);
-		log.info("Item Saved to Cart ");
+		log.info("Item Saved to Cart : ID : " + request.getItemId());
 		return ResponseEntity.ok(cart);
 	}
 	
 	@PostMapping("/removeFromCart")
-	public ResponseEntity<Cart> removeFromcart(@RequestBody ModifyCartRequest request) {
+	public ResponseEntity<Cart> removeFromCart(@RequestBody ModifyCartRequest request) {
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
 			log.info("User does not exist : " + request.getUsername());
@@ -72,7 +72,7 @@ public class CartController {
 		IntStream.range(0, request.getQuantity())
 			.forEach(i -> cart.removeItem(item.get()));
 		cartRepository.save(cart);
-		log.info("Item Deleted from Cart : " + request.getItemId());
+		log.info("Item Deleted from Cart : ID : " + request.getItemId());
 		return ResponseEntity.ok(cart);
 	}
 }
