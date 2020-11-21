@@ -29,7 +29,7 @@ public class OrderController {
 
 		User user = userRepository.findByUsername(username);
 		if (user == null) {
-			log.info("Error : User does not exist : Order not Submitted");
+			log.info("Error : User does not exist : Order not Submitted : " + username);
 			return ResponseEntity.notFound().build();
 		} else {
 			log.info("Success : User does exist for order submission : " + user.getUsername());

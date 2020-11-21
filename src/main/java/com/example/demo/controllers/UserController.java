@@ -35,6 +35,12 @@ public class UserController {
 	@GetMapping("/{username}")
 	public ResponseEntity<User> findByUserName(@PathVariable String username) {
 		User user = userRepository.findByUsername(username);
+
+		if (user == null) {
+			log.info("Error : User not found : username : " + username);
+		} else {
+			log.info ("Success : User Exists : username : " + username);
+		}
 		return user == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(user);
 	}
 	
@@ -42,7 +48,7 @@ public class UserController {
 	public ResponseEntity<User> createUser(@RequestBody CreateUserRequest createUserRequest) {
 		User user = new User();
 		user.setUsername(createUserRequest.getUsername());
-		log.info("Username successfully set : " + createUserRequest.getUsername());
+		log.info("Success : Username set : " + createUserRequest.getUsername());
 
 		Cart cart = new Cart();
 		cartRepository.save(cart);
@@ -50,7 +56,7 @@ public class UserController {
 
 		if (createUserRequest.getPassword().length() < 7 ||
 				!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())) {
-			log.info("User Password Error : User not created : " + createUserRequest.getUsername());
+			log.info("Error : Password less than 7 characters : User not created : " + createUserRequest.getUsername());
 			return ResponseEntity.badRequest().build();
 		}
 

@@ -1,12 +1,16 @@
 package com.example.demo.security;
 
 import com.auth0.jwt.JWT;
-import com.example.demo.model.persistence.User;
+
+//import com.example.demo.model.persistence.User;
+
+import com.example.demo.model.requests.CreateUserRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -35,13 +39,15 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest req,
                                                 HttpServletResponse res) throws AuthenticationException {
         try {
-            User credential = new ObjectMapper()
-                    .readValue(req.getInputStream(), User.class);
+            //User credential = new ObjectMapper()
+            //        .readValue(req.getInputStream(), User.class);
+            CreateUserRequest credentials = new ObjectMapper()
+                    .readValue(req.getInputStream(), CreateUserRequest.class);
 
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            credential.getUsername(),
-                            credential.getPassword(),
+                            credentials.getUsername(),
+                            credentials.getPassword(),
                             new ArrayList<>())
             );
         } catch (IOException e) {
