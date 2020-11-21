@@ -56,7 +56,7 @@ public class UserController {
 
 		if (createUserRequest.getPassword().length() < 7 ||
 				!createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())) {
-			log.info("Error : Password less than 7 characters : User not created : " + createUserRequest.getUsername());
+			log.info("Error : Password less than 7 characters OR unmatched passwords : User not created : " + createUserRequest.getUsername());
 			return ResponseEntity.badRequest().build();
 		}
 

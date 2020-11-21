@@ -9741,3 +9741,37 @@ java.lang.StackOverflowError: null
 	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:200) ~[spring-security-core-5.1.5.RELEASE.jar:5.1.5.RELEASE]
 	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter$AuthenticationManagerDelegator.authenticate(WebSecurityConfigurerAdapter.java:503) ~[spring-security-config-5.1.5.RELEASE.jar:5.1.5.RELEASE]
 
+2020-11-21 04:03:03.700  INFO 20544 --- [main] com.example.demo.EcommerceApplication    : Starting EcommerceApplication on DESKTOP-4NT977P with PID 20544 (D:\Proj5\Ecommerce-4\target\classes started by Diana2 in D:\Proj5\Ecommerce-4)
+2020-11-21 04:03:03.702  INFO 20544 --- [main] com.example.demo.EcommerceApplication    : No active profile set, falling back to default profiles: default
+2020-11-21 04:03:04.234  INFO 20544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-11-21 04:03:04.297  INFO 20544 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53ms. Found 4 repository interfaces.
+2020-11-21 04:03:04.760  INFO 20544 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$86d11ed0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-21 04:03:04.973  INFO 20544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-11-21 04:03:05.011  INFO 20544 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-11-21 04:03:05.011  INFO 20544 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.19]
+2020-11-21 04:03:05.120  INFO 20544 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-11-21 04:03:05.121  INFO 20544 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1371 ms
+2020-11-21 04:03:05.252  INFO 20544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-11-21 04:03:05.319  INFO 20544 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-11-21 04:03:05.351  INFO 20544 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-21 04:03:05.389  INFO 20544 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.10.Final}
+2020-11-21 04:03:05.390  INFO 20544 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2020-11-21 04:03:05.470  INFO 20544 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-11-21 04:03:05.570  INFO 20544 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-11-21 04:03:06.113  INFO 20544 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-21 04:03:06.558  WARN 20544 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-21 04:03:06.619  INFO 20544 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58ad0586, org.springframework.security.web.context.SecurityContextPersistenceFilter@4f22fd5d, org.springframework.security.web.header.HeaderWriterFilter@94aeba1, org.springframework.web.filter.CorsFilter@526fc044, org.springframework.security.web.authentication.logout.LogoutFilter@183a508b, com.example.demo.security.JWTAuthenticationFilter@45635ae1, com.example.demo.security.JWTAuthenticationVerificationFilter@7adbec34, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e7f29d5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@618fb1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4aea57dc, org.springframework.security.web.session.SessionManagementFilter@ff8e36d, org.springframework.security.web.access.ExceptionTranslationFilter@14d298d6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5cf80dfb]
+2020-11-21 04:03:06.734  INFO 20544 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-21 04:03:06.850  INFO 20544 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-21 04:03:06.853  INFO 20544 --- [main] com.example.demo.EcommerceApplication    : Started EcommerceApplication in 3.483 seconds (JVM running for 4.699)
+2020-11-21 04:06:03.917  INFO 20544 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-21 04:06:03.919  INFO 20544 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-11-21 04:06:03.927  INFO 20544 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-11-21 04:06:04.013  INFO 20544 --- [http-nio-8080-exec-1] c.e.demo.controllers.UserController      : Success : Username set : diana
+2020-11-21 04:06:04.156  INFO 20544 --- [http-nio-8080-exec-1] c.e.demo.controllers.UserController      : Success : User Created : diana
+2020-11-21 04:06:26.361  INFO 20544 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Success : Username set : clarissa
+2020-11-21 04:06:26.364  INFO 20544 --- [http-nio-8080-exec-3] c.e.demo.controllers.UserController      : Error : Password less than 7 characters : User not created : clarissa
+2020-11-21 04:08:14.181  INFO 20544 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Success : Username set : shirley
+2020-11-21 04:08:14.183  INFO 20544 --- [http-nio-8080-exec-4] c.e.demo.controllers.UserController      : Error : Password less than 7 characters : User not created : shirley
