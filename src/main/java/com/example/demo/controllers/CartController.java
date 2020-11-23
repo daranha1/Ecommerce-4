@@ -40,19 +40,19 @@ public class CartController {
 	public ResponseEntity<Cart> addToCart(@RequestBody ModifyCartRequest request) {
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
-			log.info("Error : User does not exist : " + request.getUsername());
+			log.info("Error : AddToCart : User does not exist : " + request.getUsername());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
 		if(!item.isPresent()) {
-			log.info("Item Does not exist : " + request.getItemId());
+			log.info("Error : AddToCart : Item Does not exist : " + request.getItemId());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Cart cart = user.getCart();
 		IntStream.range(0, request.getQuantity())
 			.forEach(i -> cart.addItem(item.get()));
 		cartRepository.save(cart);
-		log.info("Item Saved to Cart : ID : " + request.getItemId());
+		log.info("Success : AddToCart : Item Saved to Cart : ID : " + request.getItemId());
 		return ResponseEntity.ok(cart);
 	}
 	
@@ -60,19 +60,19 @@ public class CartController {
 	public ResponseEntity<Cart> removeFromCart(@RequestBody ModifyCartRequest request) {
 		User user = userRepository.findByUsername(request.getUsername());
 		if(user == null) {
-			log.info("User does not exist : " + request.getUsername());
+			log.info("Error : RemoveFromCart : User does not exist : " + request.getUsername());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Optional<Item> item = itemRepository.findById(request.getItemId());
 		if(!item.isPresent()) {
-			log.info("Item Does not exist : " + request.getItemId());
+			log.info("Error : RemoveFromCart : Item Does not exist : " + request.getItemId());
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 		Cart cart = user.getCart();
 		IntStream.range(0, request.getQuantity())
 			.forEach(i -> cart.removeItem(item.get()));
 		cartRepository.save(cart);
-		log.info("Item Deleted from Cart : ID : " + request.getItemId());
+		log.info("Success : RemoveFromCart : Item Deleted from Cart : ID : " + request.getItemId());
 		return ResponseEntity.ok(cart);
 	}
 }

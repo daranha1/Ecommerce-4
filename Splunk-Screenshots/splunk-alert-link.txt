@@ -1,0 +1,3 @@
+https://geek-university.com/splunk/create-an-alert/
+
+Create an alert
