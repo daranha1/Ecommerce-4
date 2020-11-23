@@ -58,7 +58,6 @@ public class UserControllerTest {
 
         final ResponseEntity<User> username = userController.findByUserName("testUser-2");
         assertNotNull(username);
-        assertNotNull(username);
         assertEquals (200, username.getStatusCodeValue());
         assertEquals("testUser-2", username.getBody().getUsername());
     }
@@ -107,5 +106,31 @@ public class UserControllerTest {
         assertNotNull(locateById);
         assertEquals(200, locateById.getStatusCodeValue());
         assertEquals(3, locateById.getBody().getId());
+    }
+
+    /////////////// Test 6 : User Not found by wrong userId //////////////////////
+    @Test
+    public void check_Find_By_UserId_WrongId() {
+        User user = new User();
+        user.setId(0);
+
+        when(userRep.findById((long) 0)).thenReturn(java.util.Optional.of(user));
+        final ResponseEntity<User> respLocateById = userController.findById(26L);
+
+        assertNotNull(respLocateById);
+        assertEquals(404, respLocateById.getStatusCodeValue());
+    }
+
+    /////////////// Test 7 : User Not found by wrong username //////////////////////
+    @Test
+    public void check_Find_By_Incorrect_Username() {
+        User user = new User();
+        user.setUsername("testUser-7");
+        user.setPassword("testPassword-7");
+
+        when(userRep.findByUsername("testUser-7")).thenReturn(user);
+        final ResponseEntity<User> username = userController.findByUserName("testUser-2");
+        assertNotNull(username);
+        assertEquals (404, username.getStatusCodeValue());
     }
 }

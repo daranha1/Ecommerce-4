@@ -182,7 +182,7 @@ public class CartControllerTest {
 
     ////////// Test Unsuccessful Removal from Cart - Null Item ////////
     @Test
-    public void checkItemNotRemovedFromCart() {
+    public void checkRemovedFromCartNoItem() {
         Cart cart1 = new Cart();
 
         Long itemId = 2L;
@@ -200,9 +200,9 @@ public class CartControllerTest {
 
         when (userRepos.findByUsername(username)).thenReturn(user1);
         when(itemRepos.findById(itemId)).thenReturn(Optional.ofNullable(null));
-
     }
 
+    ///////////////////////  Helper methods ////////////////////////////////////////////////////////
     private Item makeItem (Long itemId, String itemName, BigDecimal itemPrice, String itemDescription) {
         Item myItem = new Item();
         myItem.setId(itemId);
