@@ -86,6 +86,7 @@ public class OrderControllerTest {
         assertNotNull(orderList);
     }
 
+    ///////////////////////////// Test 3 : Order cannot be submitted when username does not exist ///////////////////
     @Test
     public void checkSubmitOrderFailed() {
 
@@ -94,6 +95,7 @@ public class OrderControllerTest {
         assertEquals(404, response.getStatusCodeValue());
     }
 
+    ////////////////////////////// Test 4 : Order history fails when user does not have an order ///////////////
     @Test
     public void checkOrderHistoryFailed() {
 
