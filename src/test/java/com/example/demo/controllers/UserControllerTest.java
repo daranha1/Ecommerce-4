@@ -27,6 +27,7 @@ public class UserControllerTest {
         TestUtils.injectObjects(userController, "cartRepository", cartRep);
         TestUtils.injectObjects(userController, "bCryptPasswordEncoder", encoder);
     }
+    ////////////// 7 Tests are added to this program //////////////////////////
 
     ////////////// Test-1 : Create user successfully ///////////////////////////
     @Test
